@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import javax.swing.*;
+import java.awt.Color;
 
 public class GameElements {
 	
@@ -16,31 +17,37 @@ public class GameElements {
 	public static void createPopUp(String[] msg) {
 		
 		JFrame frame = new JFrame("Oops! Almost there!");
+		frame.getContentPane().setBackground(Color.LIGHT_GRAY);
 		Font font = new Font("Arial", Font.BOLD, 20);
 		 
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setBounds(200,100,400,200);
+		frame.setBounds(200,100,760,533);
 		
 		Container container = frame.getContentPane();
 		container.setLayout(null);
 		
 		JLabel title = new JLabel();
+		title.setBackground(Color.ORANGE);
 		title.setText("Quiz Time! Will you survive?");
-		title.setBounds(49,0,300,45);
+		title.setBounds(229,24,300,45);
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		title.setFont(font);
 		
 
-		JLabel question = new JLabel(msg[0]);
-		question.setBounds(20, 40 , 250, 30);
-		question.setFont(new Font("Arial", Font.PLAIN, 18));
+		JTextArea question = new JTextArea(msg[0]);
+		question.setBackground(Color.GRAY);
+		question.setWrapStyleWord(true);
+		question.setLineWrap(true);
+		question.setBounds(58, 96 , 631, 195);
+		question.setFont(new Font("Arial", Font.PLAIN, 20));
 		
 		JLabel answer = new JLabel("Answer: ");
 		answer.setHorizontalAlignment(SwingConstants.CENTER);
-		answer.setBounds(20, 80 , 60, 30);
+		answer.setFont(new Font("Arial", Font.PLAIN, 15));
+		answer.setBounds(58, 319 , 78, 45);
 		
 		JTextField answerField = new JTextField(100);
-		answerField.setBounds(90,80,250,30);
+		answerField.setBounds(58,375,631,36);
 		
 		
 		container.add(title);
@@ -49,6 +56,7 @@ public class GameElements {
 		container.add(answerField);
 		
 		JButton btnOk = new JButton("ok");
+		btnOk.setFont(new Font("Arial", Font.PLAIN, 15));
 		answerField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String result =answerField.getText();
@@ -61,7 +69,7 @@ public class GameElements {
 			}
 		});
 		
-		btnOk.setBounds(155, 120, 85, 21);
+		btnOk.setBounds(340, 431, 98, 36);
 		frame.getContentPane().add(btnOk);
 		
 		
