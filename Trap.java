@@ -34,17 +34,12 @@ public class Trap {
         g.fillRect(xCoor * width , yCoor * height, width, height);
     }
     
-    public void generateQuiz() {
+    public static void generateQuiz() {
 
     	String[] question = generateQuestion();
     	
-    	String answer = GameElements.createPopUp(question[0]);
-    	if(question[1].equalsIgnoreCase(answer)) {
-    		GameElements.correct();		
-		}
-		else {
-			GamePanel.stop();
-		}
+    	GameElements.createPopUp(question);
+    	
     	
     }
     
@@ -55,7 +50,7 @@ public class Trap {
      * incorrect - > call end program
      */
     
-    public String[] generateQuestion() {
+    public static String[] generateQuestion() {
     	String[] generatedQA = new String [2];
     	String[] questions = {"aa"," bb"};   //add questions and answers later
     	String[] answers = {"aa", "bb"};
